@@ -1,62 +1,226 @@
 @use "../variables";
+@use "../functions";
 
 * {
   box-sizing: border-box;
 }
 
-body {
+body{
+  margin: 0;
+  background-color: variables.$color-bg;
+}
+
+.section-main {
+  margin: 10px;
+  font-family: variables.$font-family-sans-serif;
+  font-size: 18px;
+  line-height: 24px;
+  color: variables.$color-text-primary;
+}
+
+/*------------------------------------*\
+  #SECTION-HEADER
+\*------------------------------------*/
+
+.section-header{
+  /* Box model */
+  width: 100%;
+
+  /* Typography */
+  color: variables.$color-text-primary;
+
+  /* Visual */
+  background-color: variables.$color-cream-light;
+}
+
+.section-header__container {
+  /* Box model */
+  width: 100%;
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.section-header__logo {
+  width: 10rem;
+}
+
+.section-header__title{
+  width: 100%;
   margin: 0;
-  padding: 2rem;
-  font-family: variables.$font-family-sans-serif;
-  font-size: 16px;
-  line-height: 24px;
-  background-color: variables.$uoc-bg;
-  color: variables.$uoc-corporate;
-}
-
-.uoc-container {
-  max-width: 800px;
-  margin: auto;
-  padding: 2rem;
-  border-radius: 2rem;
+  padding: 1rem;
   text-align: center;
-  background-color: #fff;
-  box-shadow:
-    0 4px 6px -1px rgba(0, 0, 0, 0.1),
-    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  font-size: 2.4rem;
+  background-color: variables.$color-green;
 }
 
-.uoc-logo {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 1.5rem;
-  max-width: 200px;
-  height: auto;
+/*------------------------------------*\
+  #SECTION-FOOTER
+\*------------------------------------*/
 
-  @media (min-width: variables.$mqMinWidth) {
-    max-width: none;
-  }
-}
-
-.uoc-title {
-  font-family: variables.$font-family-serif;
-  font-size: 24px;
-  font-weight: 700;
-  color: variables.$uoc-corporate;
-
-  @media (min-width: variables.$mqMinWidth) {
-    font-size: 36px;
-  }
-}
-
-.uoc-footer {
-  margin-top: 1.5rem;
+.footer {
+  margin-top: 2rem;
   font-size: 0.75rem;
   text-align: center;
+  background-color: variables.$color-cream-light;
 }
 
-#map { height: 200px; }
+  .footer__redsocial {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  .footer__author {
+    padding: 0.5rem;
+    background-color: variables.$color-green;
+  }
+
+.fa-brands {
+  font-size: 1.8rem;
+}
+
+.fa-brands:hover {
+  color: variables.$color-red;
+}
+
+/*------------------------------------*\
+  #SECTION-MAP
+\*------------------------------------*/
+
+.container-map__map {
+  width: 100%;
+  height: 200px;
+  border-radius: 10px;
+}
+
+/*------------------------------------*\
+  #SECTION-DESCRIPTION
+\*------------------------------------*/
+
+.container-place__img{
+  width: 100%;
+  border-radius: 10px;
+}
+
+
+/*------------------------------------*\
+  #SECTION-DESCRIPTION
+\*------------------------------------*/
+
+.container-description__title{
+  line-height: normal;
+}
+.container-description__img {
+  width: 100%;
+  height: 800px;
+  border-radius: 10px;
+}
+
+/*------------------------------------*\
+  #SECTION-LEGEND
+\*------------------------------------*/
+
+.container-legend {
+  margin-top: 1rem;
+  text-align: center;
+  background-color: variables.$color-green;
+  border-radius: 10px;
+  border-style: groove;
+
+  /* anidado */
+  &__title {
+    padding-top: 1rem;
+ 
+  }
+
+  &__paragraph {
+    margin: 1rem;
+    text-align: initial;
+    color: variables.$color-blue;
+  }
+}
+/*
+.container-legend__title {
+  padding-top: 1rem;
+}
+
+.container-legend__paragraph {
+  margin: 1rem;
+  text-align: initial;
+  color: variables.$color-blue;
+}
+*/
+
+/*------------------------------------*\
+  #SECTION-PHOTOS
+\*------------------------------------*/
+
+.container-photos__album {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.container-photos__img {
+  margin: 1rem;
+  width: 100%;
+  height: 250px;
+  border-radius: 10px;
+}
+
+/*------------------------------------*\
+  #SECTION-VIDEO
+\*------------------------------------*/
+
+.container-video__video{
+  width: 100%;
+  height: 200;
+  border-radius: 10px;
+}
+
+/*------------------------------------*\
+  #RESPONSIVE-TABLET
+\*------------------------------------*/
+
+@media (min-width: functions.size-screen(tbl)) {
+  .container-photos__img {
+    width: 45%;
+    margin: 20px auto;
+    height: 400px;
+    border-radius: 10px;
+  }
+
+  .container-map__map {
+    height: 400px;
+  }
+  
+  .container-video__video{
+    height: 400px;
+  }
+}
+
+/*------------------------------------*\
+  #RESPONSIVE-DESKTOP
+\*------------------------------------*/
+
+@media (min-width: functions.size-screen(dsk)) {
+  .section-main {
+    margin: 0 auto;
+    max-width: 90vh;
+  }
+
+  .container-photos__img {
+    width: 22%;
+    height: 200px;
+    margin: 10px auto;
+    border-radius: 10px;
+  }
+
+  .container-map__map {
+    height: 500px;
+  }
+
+  .container-video__video{
+    height: 600px;
+  }
+}

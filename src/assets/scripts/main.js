@@ -21,7 +21,7 @@ import 'leaflet/dist/leaflet.css';
   console.log(`Hello, ${university}!`);
 })();
 
-const map = L.map('map').setView([-4.185640, -79.229579], 13);
+const map = L.map('js-map').setView([-4.185640, -79.229579], 13);
 
 const markerUrl = new URL(
     '../images/location.png',

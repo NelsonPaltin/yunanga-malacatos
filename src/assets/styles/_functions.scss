@@ -1,0 +1,9 @@
+@use "sass:map";
+$sizes-screen: (
+    "tbl":768px,
+    "dsk":1024px
+);
+
+@function size-screen($key){
+    @return map.get($sizes-screen, $key);
+}
